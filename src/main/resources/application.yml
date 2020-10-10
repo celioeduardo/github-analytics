@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: github-analytics
+  cloud:
+    stream:
+      bindings:
+        input:
+          group: github-analytics
+          destination: messages
+  jpa:
+    database: mysql
+       
+server:
+  port: ${PORT:8085}
+ 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    root: INFO
+    #org.springframework.cloud.contract: DEBUG
